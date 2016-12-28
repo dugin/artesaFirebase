@@ -1,0 +1,59 @@
+.form {
+  margin: 20px;
+}
+
+.range {
+  display: inline;
+  width: 80px;
+}
+
+span {
+  margin: 0 10px;
+}
+
+label {
+    margin: 10px 0;
+  display: block;
+}
+
+button {
+  margin: 20px auto;
+  width: 100%;
+}
+
+.tipo {
+  background-color: black;
+  color: blue;
+}
+
+.colors {
+  padding: 15px;
+  margin: 0;
+  display: inline-block;
+}
+
+.range-container{
+  margin-top: 10px ;
+  display: inline-table;
+  width: 30%;
+}
+
+.colors-container{
+  margin-left: 30px;
+  display: inline;
+
+}
+.glass{
+  
+  display: inline-block;
+
+}
+.file-input{
+  margin-top: 10px;
+
+}
+.glass-img{
+ 
+ display: inline;
+}
+

@@ -1,0 +1,57 @@
+<form *ngIf="colorsTemp.length > 0" (ngSubmit)="onSubmit(f)" #f="ngForm" class='form'>
+  <div class="form-group">
+    <label for="style">Tipo da Cerveja</label>
+    <input type="text" name="style" (blur)="onBlurStyle(f)" ngModel class="form-control" id="style">
+  </div>
+  <div class="form-group">
+    <label for="srm">Range do SRM</label>
+    <input type="number" name="srm1" (blur)="onBlurSRM(f)" ngModel class="form-control range" min="1" id="srm">
+    <span class=""> à</span>
+    <input type="number" name="srm2" (blur)="onBlurSRM(f)" ngModel class="form-control range" min="1" id="srm">
+   
+     <div class="colors-container">
+  <p *ngFor="let color of colorsTemp; let i = index" class="colors" [style.color]="color.srm < 14? 'black': 'white'" [style.background-color]=color.hex>
+    SRM: {{color.srm}} </p>
+    </div>
+  </div>
+ 
+   
+  <div class="form-group range-container ">
+    <label for="percAlcool">Range do % alcoólico</label>
+    <input type="number" ngModel name="percAlcool1" step="any" class="form-control range" min="1" id="percAlcool">
+    <span class=""> à</span>
+    <input type="number" ngModel name="percAlcool2" step="any" class="form-control range" min="1" id="percAlcool">
+  </div>
+  <div class="form-group range-container">
+    <label for="ibu">Range do IBU</label>
+    <input type="number" name="ibu1" ngModel class="form-control range" min="0" id="ibu1">
+    <span class=""> à</span>
+    <input type="number" name="ibu2" ngModel class="form-control range" min="1" id="ibu2">
+  </div>
+  <div class="form-group range-container">
+    <label for="temp">Range da Temperatura (℃)</label>
+    <input type="number" name="temp1" ngModel class="form-control range"  id="temp">
+    <span class=""> à</span>
+    <input type="number" name="temp2" ngModel class="form-control range" id="temp">
+  </div>
+
+    
+<img *ngIf="imgPath"  class="glass-img" [src]="imgPath" height="150px" width="auto">
+
+  <div [style.margin-left]="imgPath? '20px': '0'"  class="form-group glass">
+    <label for="glass">Copo</label>
+    <input type="text" name="glass" ngModel class="form-control" placeholder="Estilo de Copo"  id="temp">
+  
+    
+    <input type="file"  (change)="getFile($event)" class="file-input form-control-file" aria-describedby="fileHelp">
+  
+  </div>
+
+
+   <div class="form-group">
+    <label for="desc">Descrição</label>
+    <textarea class="form-control" id="desc" [(ngModel)]="desc" name="desc" rows="6"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+<sk-cube-grid *ngIf="colorsTemp.length == 0"></sk-cube-grid>
